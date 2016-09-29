@@ -25,5 +25,12 @@
             "Vinkas\\Discourse\\": "src/"
         }
     },
-	"keywords": ["api", "discourse", "laravel", "vinkas"]
+    "keywords": ["api", "discourse", "laravel", "vinkas"],
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
