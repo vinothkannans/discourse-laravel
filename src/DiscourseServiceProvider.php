@@ -8,31 +8,13 @@ use Vinkas\Discourse\Facades\Discourse;
 class DiscourseServiceProvider extends ServiceProvider
 {
   /**
-  * Indicates if loading of the provider is deferred.
-  *
-  * @var bool
-  */
-  protected $defer = true;
-
-  /**
-  * Register the service provider.
-  *
-  * @return void
-  */
-  public function register()
+   * Perform post-registration booting of services.
+   *
+   * @return void
+   */
+  public function boot()
   {
-    $this->app->singleton(Discourse::class, function ($app) {
-      return new Discourse($app['config']['discourse']);
-    });
+    $this->loadMigrationsFrom(__DIR__.'../database/migrations');
   }
-
-  /**
-  * Get the services provided by the provider.
-  *
-  * @return array
-  */
-  public function provides()
-  {
-    return [Discourse::class];
-  }
+  
 }

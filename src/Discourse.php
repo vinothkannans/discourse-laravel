@@ -3,20 +3,28 @@
 namespace Vinkas\Discourse;
 
 use Vinkas\Discourse\Traits\API;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  *
  */
-class Discourse
+class Discourse extends Model
 {
-
   use API;
 
-  array $config;
+  private $url;
 
-  public function __construct(array $config)
-  {
-    $this->config = $config;
+  protected function getUrl() {
+    if($this->url)
+      return $this->url;
+
+    $protocol = $this->ssl ? 'https' : 'http';
+    $this->url = sprintf(
+      '%s://%s',
+      $protocol,
+      $this->domain,
+    );
+    return $this->url;
   }
 
 }
