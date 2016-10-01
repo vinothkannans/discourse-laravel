@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDiscoursesTable extends Migration
+class CreateDiscourseForumsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateDiscoursesTable extends Migration
      */
     public function up()
     {
-        Schema::create('discourses', function (Blueprint $table) {
+        Schema::create('discourse_forums', function (Blueprint $table) {
             $table->increments('id');
             $table->string('domain', 100);
             $table->boolean('ssl');

@@ -14,7 +14,12 @@ class CreateDiscourseTopicsTable extends Migration
     public function up()
     {
         Schema::create('discourse_topics', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->integer('forum_id')->unsigned();
+            $table->integer('id')->unsigned()->primary();
+            $table->string('title');
+            $table->text('raw');
+            $table->string('category');
+            $table->foreign('forum_id')->references('id')->on('discourse_forums');
         });
     }
 
