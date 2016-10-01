@@ -35,8 +35,8 @@ trait API
 
   protected function setQueryParams($api_key, $api_username) {
     $this->queryParams = array();
-    $this->queryParams['api_key'] = $this->api_key;
-    $this->queryParams['api_username'] = $this->api_username;
+    $this->queryParams['api_key'] = $api_key;
+    $this->queryParams['api_username'] = $api_username;
   }
 
 }
